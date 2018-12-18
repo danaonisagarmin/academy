@@ -1,18 +1,17 @@
 package com.garmin.java.academy.domain;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Activity {
-	
+
 	private String name;
-	
+
 	private ActivityType type;
-	
-	private LocalDateTime date;
-	
-	private Duration duration;
-	
+
+	private Date date;
+
+	private Long duration;
+
 	private Distance distance;
 
 	public String getName() {
@@ -31,19 +30,19 @@ public class Activity {
 		this.type = type;
 	}
 
-	public LocalDateTime getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDateTime date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
-	public Duration getDuration() {
+	public Long getDuration() {
 		return duration;
 	}
 
-	public void setDuration(Duration duration) {
+	public void setDuration(Long duration) {
 		this.duration = duration;
 	}
 
@@ -54,8 +53,15 @@ public class Activity {
 	public void setDistance(Distance distance) {
 		this.distance = distance;
 	}
-	
-	//TODO: getter vs setter ?
-	//private float avgSpeed;
-	
+
+	@Override
+	public String toString() {
+		return "Activity{" +
+				"name='" + name + '\'' +
+				", type=" + type +
+				", date=" + date +
+				", duration=" + duration +
+				", distance=" + distance +
+				'}';
+	}
 }
