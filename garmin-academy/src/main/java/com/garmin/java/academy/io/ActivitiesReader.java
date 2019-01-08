@@ -8,6 +8,6 @@ public interface ActivitiesReader {
 
 	Activity readActivity() throws Exception;
 
-	List<Activity> readActivities();
+	List<Activity> readActivities() throws Exception;
 
 }
