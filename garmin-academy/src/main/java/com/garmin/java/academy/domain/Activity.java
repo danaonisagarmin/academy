@@ -2,66 +2,62 @@ package com.garmin.java.academy.domain;
 
 import java.util.Date;
 
-public class Activity {
+public abstract class Activity {
 
-	private String name;
+    String name;
+    ActivityType type;
+    Date date;
+    Long duration;
+    Distance distance;
 
-	private ActivityType type;
+    public String getName() {
+        return name;
+    }
 
-	private Date date;
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	private Long duration;
+    public ActivityType getType() {
+        return type;
+    }
 
-	private Distance distance;
+    public void setType(ActivityType type) {
+        this.type = type;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public Date getDate() {
+        return date;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-	public ActivityType getType() {
-		return type;
-	}
+    public Long getDuration() {
+        return duration;
+    }
 
-	public void setType(ActivityType type) {
-		this.type = type;
-	}
+    public void setDuration(Long duration) {
+        this.duration = duration;
+    }
 
-	public Date getDate() {
-		return date;
-	}
+    public Distance getDistance() {
+        return distance;
+    }
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    public void setDistance(Distance distance) {
+        this.distance = distance;
+    }
 
-	public Long getDuration() {
-		return duration;
-	}
-
-	public void setDuration(Long duration) {
-		this.duration = duration;
-	}
-
-	public Distance getDistance() {
-		return distance;
-	}
-
-	public void setDistance(Distance distance) {
-		this.distance = distance;
-	}
-
-	@Override
-	public String toString() {
-		return "Activity{" +
-				"name='" + name + '\'' +
-				", type=" + type +
-				", date=" + date +
-				", duration=" + duration +
-				", distance=" + distance +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "Activity{" +
+                "name='" + name + '\'' +
+                ", type=" + type +
+                ", date=" + date +
+                ", duration=" + duration +
+                ", distance=" + distance +
+                '}';
+    }
 }
