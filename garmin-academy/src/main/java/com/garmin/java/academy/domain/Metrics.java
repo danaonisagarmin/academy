@@ -1,9 +1,10 @@
 package com.garmin.java.academy.domain;
 
-public class Metrics {
-    private float avgPace;
-    private int activitiesNumber;
-    private float avgDistance;
+public abstract class Metrics {
+
+    float avgPace;
+    int activitiesNumber;
+    float avgDistance;
 
     public float getAvgPace() {
         return avgPace;
