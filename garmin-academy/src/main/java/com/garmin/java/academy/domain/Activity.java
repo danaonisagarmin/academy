@@ -4,11 +4,11 @@ import java.util.Date;
 
 public abstract class Activity {
 
-    String name;
-    ActivityType type;
-    Date date;
-    Long duration;
-    Distance distance;
+    protected String name;
+    protected ActivityType type;
+    protected Date date;
+    protected Long duration;
+    protected Distance distance;
 
     public String getName() {
         return name;

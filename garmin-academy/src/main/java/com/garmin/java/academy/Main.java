@@ -6,16 +6,18 @@ import com.garmin.java.academy.domain.ActivityType;
 import com.garmin.java.academy.domain.Distance;
 import com.garmin.java.academy.domain.MeasurementUnit;
 import com.garmin.java.academy.domain.RunningActivity;
-import com.garmin.java.academy.io.ActivitiesReader;
-import com.garmin.java.academy.io.impl.ActivitiesFileReader;
+import com.garmin.java.academy.engine.manager.ActivityManager;
+import com.garmin.java.academy.io.impl.ActivityRepositoryImpl;
 
 import java.util.Date;
+import java.util.List;
 
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		ActivitiesReader activitiesReader = new ActivitiesFileReader();
-		System.out.println(activitiesReader.readActivity());
+		ActivityManager manager = new ActivityManager(new ActivityRepositoryImpl());
+		List<Activity> activities = manager.getActivities();
+
 	}
 
 	private void generateJson() throws Exception {

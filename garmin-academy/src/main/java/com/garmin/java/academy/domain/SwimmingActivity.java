@@ -3,7 +3,9 @@ package com.garmin.java.academy.domain;
 public class SwimmingActivity extends Activity {
 
     private StrokeType strokeType;
-    private int swolf;
+    // numberOfStrokes/poolLength (50m)
+    private Integer swolf;
+    private Integer numberOfStrokes;
 
     public StrokeType getStrokeType() {
         return strokeType;
@@ -13,11 +15,13 @@ public class SwimmingActivity extends Activity {
         this.strokeType = strokeType;
     }
 
-    public int getSwolf() {
+    public Integer getSwolf() {
         return swolf;
     }
 
-    public void setSwolf(int swolf) {
+    public void setSwolf(Integer swolf) {
         this.swolf = swolf;
     }
+    
+    
 }

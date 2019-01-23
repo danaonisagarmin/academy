@@ -1,5 +1,10 @@
 package com.garmin.java.academy.io.impl;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.garmin.java.academy.domain.Activity;
+import com.garmin.java.academy.io.ActivityRepository;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
@@ -9,30 +14,33 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.garmin.java.academy.domain.Activity;
-import com.garmin.java.academy.io.ActivitiesReader;
-
-public class ActivitiesFileReader implements ActivitiesReader {
+//TODO
+public class ActivityRepositoryImpl implements ActivityRepository {
 
     private static final String ACTIVITY_FILE_NAME = "activities/activity.json";
     private static final String ACTIVITIES_FILE_NAME = "activities/activities.json";
     ObjectMapper mapper = new ObjectMapper();
 
+    private List<Activity> activities;
+
     @Override
-    public Activity readActivity() throws Exception {
-        String data = readFile(ACTIVITY_FILE_NAME);
-        Activity activity = mapper.readValue(data, Activity.class);
-        return activity;
+    public void add(Activity activity) throws Exception {
+
     }
 
     @Override
-    public List<Activity> readActivities() throws Exception {
+    public List<Activity> getActivities() throws Exception {
+        return activities;
+    }
+
+    @Override
+    public List<Activity> loadActivities() throws IOException, URISyntaxException {
         String data = readFile(ACTIVITIES_FILE_NAME);
         List<Activity> activities = mapper.readValue(data, new TypeReference<List<Activity>>() {
         });
-        return activities;
+
+        this.activities=activities;
+        return this.activities;
     }
 
     private static String readFile(String fileName) throws URISyntaxException, IOException {
