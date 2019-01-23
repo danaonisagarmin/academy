@@ -5,6 +5,7 @@ import com.garmin.java.academy.domain.Activity;
 import com.garmin.java.academy.domain.ActivityType;
 import com.garmin.java.academy.domain.Distance;
 import com.garmin.java.academy.domain.MeasurementUnit;
+import com.garmin.java.academy.domain.RunningActivity;
 import com.garmin.java.academy.io.ActivitiesReader;
 import com.garmin.java.academy.io.impl.ActivitiesFileReader;
 
@@ -18,7 +19,7 @@ public class Main {
 	}
 
 	private void generateJson() throws Exception {
-		Activity a = new Activity();
+		Activity a = new RunningActivity();
 		a.setDate(new Date());
 		a.setDistance(new Distance(123f, MeasurementUnit.METERS));
 		a.setDuration(2000L);
