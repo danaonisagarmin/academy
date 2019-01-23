@@ -23,12 +23,12 @@ public class MetricsCache {
             activityMetrics = new HashMap<>();
         }
         if (!activityMetrics.containsKey(activity.getType())) {
-            metrics = new Metrics();
-            activityMetrics.put(activity.getType(), metrics);
+//            metrics = new Metrics();
+//            activityMetrics.put(activity.getType(), metrics);
         } else {
             metrics = activityMetrics.get(activity.getType());
         }
-        createMetric(activity, metrics);
+//        createMetric(activity, metrics);
     }
 
     private Metrics createMetric(Activity activity, Metrics existingMetrix) {
