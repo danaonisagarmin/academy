@@ -2,7 +2,7 @@ package com.garmin.java.academy.domain;
 
 import java.util.List;
 
-public class Inisght
+public class Insight
 {
     private String insightMessage;
 
