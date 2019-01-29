@@ -8,6 +8,9 @@ import com.garmin.java.academy.domain.Insight;
 public interface VirtualTrainer
 {
 
+    /*
+     * Creates all posible insights based on existing activities and metrics
+     */
     public List <Insight> generateAllInsights();
 
     /*
@@ -15,8 +18,14 @@ public interface VirtualTrainer
      */
     public void refreshInsightsBasedOnNewActivity(Activity activity);
 
+    /*
+     * Returns all existing insights
+     */
     public List <Insight> getAllInsights();
 
+    /*
+     * Returns 3 random insights
+     */
     public List <Insight> getThreeRandomInsights();
 
 }
