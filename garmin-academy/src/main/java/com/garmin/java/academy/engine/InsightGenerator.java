@@ -7,7 +7,7 @@ import com.garmin.java.academy.domain.Insight;
 
 public interface InsightGenerator
 {
-    public List <Insight> generateAll();
+    public List <Insight> generateAll() throws Exception;
     
     public List <Insight> generateForNewActivity(Activity activity);
 }

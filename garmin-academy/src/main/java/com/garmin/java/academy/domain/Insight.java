@@ -14,6 +14,11 @@ public class Insight
 
     private InsightType insightType;
 
+    public Insight(String message)
+    {
+        insightMessage = message;
+    }
+
     public String getInsightMessage()
     {
         return insightMessage;
