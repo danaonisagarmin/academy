@@ -9,5 +9,5 @@ public interface InsightGenerator
 {
     public List <Insight> generateAll() throws Exception;
     
-    public List <Insight> generateForNewActivity(Activity activity);
+    public List <Insight> generateForNewActivity(Activity activity) throws Exception;
 }

@@ -1,14 +1,13 @@
 package com.garmin.java.academy.engine.manager;
 
-import com.garmin.java.academy.domain.Activity;
-import com.garmin.java.academy.domain.ActivityType;
-import com.garmin.java.academy.io.ActivityRepository;
-
 import static java.util.stream.Collectors.toList;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
+
+import com.garmin.java.academy.domain.Activity;
+import com.garmin.java.academy.domain.ActivityType;
+import com.garmin.java.academy.io.ActivityRepository;
 
 public class ActivityManager {
 

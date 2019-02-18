@@ -16,6 +16,11 @@ public class MetricsCache {
     public Map<ActivityType, Metrics> getActivityMetrics() {
         return activityMetrics;
     }
+    
+    public Metrics getMetricsForActivityType(ActivityType activityType)
+    {
+    	return activityMetrics.get(activityType);
+    }
 
     private void initializeMetrics(Activity activity) {
         Metrics metrics;
@@ -35,5 +40,6 @@ public class MetricsCache {
         //TODO calculate indiviudal metric
         return null;
     }
+    
 
 }
