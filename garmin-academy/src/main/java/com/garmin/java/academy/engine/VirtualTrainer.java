@@ -11,12 +11,12 @@ public interface VirtualTrainer
     /*
      * Creates all posible insights based on existing activities and metrics
      */
-    public List <Insight> generateAllInsights();
+    public List <Insight> generateAllInsights() throws Exception;
 
     /*
      * Removes outdated insights, creates new insigts based on the given activity
      */
-    public void refreshInsightsBasedOnNewActivity(Activity activity);
+    public void refreshInsightsBasedOnNewActivity(Activity activity) throws Exception;
 
     /*
      * Returns all existing insights

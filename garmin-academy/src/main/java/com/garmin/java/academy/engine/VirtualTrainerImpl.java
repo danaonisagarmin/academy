@@ -20,7 +20,7 @@ public class VirtualTrainerImpl implements VirtualTrainer
     
 
     @Override
-    public List <Insight> generateAllInsights()
+    public List <Insight> generateAllInsights() throws Exception
     {
         for(InsightGenerator generator:insightGenerators)
         {
@@ -30,7 +30,7 @@ public class VirtualTrainerImpl implements VirtualTrainer
     }
 
     @Override
-    public void refreshInsightsBasedOnNewActivity(Activity activity)
+    public void refreshInsightsBasedOnNewActivity(Activity activity) throws Exception
     {
         //remove invalid insights
         List<Insight> invalidInsights = trainerInsights.stream()

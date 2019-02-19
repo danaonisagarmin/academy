@@ -7,7 +7,6 @@ import java.util.List;
 import com.garmin.java.academy.domain.Activity;
 import com.garmin.java.academy.domain.ActivityType;
 import com.garmin.java.academy.domain.Insight;
-import com.garmin.java.academy.domain.InsightType;
 import com.garmin.java.academy.domain.MetricsCache;
 import com.garmin.java.academy.domain.RunningActivity;
 import com.garmin.java.academy.domain.RunningMetrics;
@@ -27,9 +26,8 @@ public class PerformanceInsightGenerator implements InsightGenerator
     ActivityManager activityManager;
     MetricsCache metricsCache;
     
-    private static InsightType TYPE = InsightType.PERFORMANCE;
-    private static String MESSAGE_NEW_RECORD = "Your have recorded a new {%s} historical record with your last {%s} activity, Congratulations! ";
-    private static String MESSAGE_OVER_AVERAGE = "Your latest {%s} activity has a better {%s} than your historical average. It's something";
+    private static String MESSAGE_NEW_RECORD = "Your have acheived a new %s historical record with your last %s activity. Congratulations! ";
+    private static String MESSAGE_OVER_AVERAGE = "Your latest %s activity has a better %s than your historical average. It's something";
     
     /**
      * Generates all possible insights based on the recorded activities 
@@ -96,7 +94,7 @@ public class PerformanceInsightGenerator implements InsightGenerator
         
         if(latestActivity.getPace()>runnnigMetrics.getAvgPace())
         {                    
-            return new Insight(String.format(MESSAGE_OVER_AVERAGE, "pace", "running"));
+            return new Insight(String.format(MESSAGE_OVER_AVERAGE, "running", "pace"));
         }
         return null;
     }
@@ -129,7 +127,7 @@ public class PerformanceInsightGenerator implements InsightGenerator
         
         if(latestActivity.getSwolf()>swimmingMetrics.getAvgSwolf())
         {                    
-            return new Insight(String.format(MESSAGE_OVER_AVERAGE, "pace", "running"));
+            return new Insight(String.format(MESSAGE_OVER_AVERAGE, "running", "pace"));
         }
         
         return null;
