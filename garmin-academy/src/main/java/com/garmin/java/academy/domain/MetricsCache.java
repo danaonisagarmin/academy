@@ -41,5 +41,10 @@ public class MetricsCache {
         return null;
     }
     
+    //temporary for unit testing
+    public void addMetric(ActivityType type, Metrics metric) {
+        activityMetrics.put(type, metric);
+    }
+    
 
 }

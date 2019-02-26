@@ -23,11 +23,11 @@ import com.garmin.java.academy.engine.manager.ActivityManager;
  */
 public class PerformanceInsightGenerator implements InsightGenerator
 {
-    ActivityManager activityManager;
-    MetricsCache metricsCache;
-    
     private static String MESSAGE_NEW_RECORD = "Your have acheived a new %s historical record with your last %s activity. Congratulations! ";
     private static String MESSAGE_OVER_AVERAGE = "Your latest %s activity has a better %s than your historical average. It's something";
+    
+    ActivityManager activityManager;
+    MetricsCache metricsCache;
     
     /**
      * Generates all possible insights based on the recorded activities 
@@ -131,5 +131,29 @@ public class PerformanceInsightGenerator implements InsightGenerator
         }
         
         return null;
+    }
+    
+    
+    public ActivityManager getActivityManager()
+    {
+        return activityManager;
+    }
+
+    
+    public void setActivityManager(ActivityManager activityManager)
+    {
+        this.activityManager = activityManager;
+    }
+
+    
+    public MetricsCache getMetricsCache()
+    {
+        return metricsCache;
+    }
+
+    
+    public void setMetricsCache(MetricsCache metricsCache)
+    {
+        this.metricsCache = metricsCache;
     }
 }
