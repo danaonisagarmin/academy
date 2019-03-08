@@ -6,11 +6,16 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public interface ActivityRepository {
 
 	void add(Activity activity) throws Exception;
 
 	List<Activity> getActivities() throws Exception;
+	
+	 Activity getActivity() throws URISyntaxException, IOException;
 
 	// loads activities from json file and stores the objects in memory
 	List<Activity> loadActivities() throws IOException, URISyntaxException;

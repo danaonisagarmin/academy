@@ -15,12 +15,13 @@ import java.util.List;
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		ActivityManager manager = new ActivityManager(new ActivityRepositoryImpl());
-		List<Activity> activities = manager.getActivities();
+		/*ActivityManager manager = new ActivityManager(new ActivityRepositoryImpl());
+		List<Activity> activities = manager.getActivities();*/
+		generateJson();
 
 	}
 
-	private void generateJson() throws Exception {
+	private static void generateJson() throws Exception {
 		Activity a = new RunningActivity();
 		a.setDate(new Date());
 		a.setDistance(new Distance(123f, MeasurementUnit.METERS));

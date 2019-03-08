@@ -1,4 +1,4 @@
-{
+[{
 	"name": "Monday Run",
 	"type": "RUNNING",
 	"date": {
@@ -31,4 +31,4 @@
 		"distance": 123.0,
 		"measurementUnit": "METERS"
 	}
-}
+}]
