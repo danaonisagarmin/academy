@@ -6,12 +6,12 @@ import java.util.List;
 
 import com.garmin.java.academy.domain.Activity;
 import com.garmin.java.academy.domain.ActivityType;
-import com.garmin.java.academy.domain.Insight;
-import com.garmin.java.academy.domain.MetricsCache;
 import com.garmin.java.academy.domain.RunningActivity;
-import com.garmin.java.academy.domain.RunningMetrics;
 import com.garmin.java.academy.domain.SwimmingActivity;
-import com.garmin.java.academy.domain.SwimmingMetrics;
+import com.garmin.java.academy.domain.old.Insight;
+import com.garmin.java.academy.domain.old.MetricsCache;
+import com.garmin.java.academy.domain.old.RunningMetrics;
+import com.garmin.java.academy.domain.old.SwimmingMetrics;
 import com.garmin.java.academy.engine.manager.ActivityManager;
 
 /**

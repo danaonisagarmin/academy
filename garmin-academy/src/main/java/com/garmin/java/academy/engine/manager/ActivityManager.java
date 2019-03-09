@@ -28,11 +28,6 @@ public class ActivityManager {
         activityRepositoryImpl.add(activity);
     }
     
-    public Activity getActivity () throws URISyntaxException, IOException {
-    	// TODO
-    	return activityRepositoryImpl.getActivity();
-    }
-
     public List<Activity> getActivities() throws Exception {
         return this.activityRepositoryImpl.getActivities();
     }
@@ -46,6 +41,12 @@ public class ActivityManager {
     public Activity getLatestActivityForType(ActivityType type) throws Exception {
         return this.activityRepositoryImpl.getActivities().stream()
             .filter(s -> s.getType().equals(type))
+            .max(Comparator.comparing(Activity::getDate))
+            .get();
+    }
+    
+    public Activity getLatestActivity() throws Exception {
+        return this.activityRepositoryImpl.getActivities().stream()
             .max(Comparator.comparing(Activity::getDate))
             .get();
     }

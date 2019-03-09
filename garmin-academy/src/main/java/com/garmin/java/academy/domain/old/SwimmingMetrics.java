@@ -1,4 +1,6 @@
-package com.garmin.java.academy.domain;
+package com.garmin.java.academy.domain.old;
+
+import com.garmin.java.academy.domain.StrokeType;
 
 public class SwimmingMetrics extends Metrics {
 

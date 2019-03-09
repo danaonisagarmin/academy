@@ -1,16 +1,15 @@
 package com.garmin.java.academy;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.garmin.java.academy.domain.Activity;
 import com.garmin.java.academy.domain.ActivityType;
 import com.garmin.java.academy.domain.Distance;
 import com.garmin.java.academy.domain.MeasurementUnit;
 import com.garmin.java.academy.domain.RunningActivity;
-import com.garmin.java.academy.engine.manager.ActivityManager;
-import com.garmin.java.academy.io.impl.ActivityRepositoryImpl;
-
-import java.util.Date;
-import java.util.List;
 
 public class Main {
 
@@ -31,6 +30,11 @@ public class Main {
 
 		ObjectMapper mapper = new ObjectMapper();
 		System.out.println(new ObjectMapper().writeValueAsString(a));
+		
+		List<Activity> activities = new ArrayList<>();
+		activities.add(a);
+		activities.add(a);
+		System.out.println(activities);
 	}
 
 }

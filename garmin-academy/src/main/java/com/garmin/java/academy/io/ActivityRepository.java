@@ -15,8 +15,6 @@ public interface ActivityRepository {
 
 	List<Activity> getActivities() throws Exception;
 	
-	 Activity getActivity() throws URISyntaxException, IOException;
-
 	// loads activities from json file and stores the objects in memory
 	List<Activity> loadActivities() throws IOException, URISyntaxException;
 

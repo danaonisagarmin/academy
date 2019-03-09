@@ -1,8 +1,11 @@
-package com.garmin.java.academy.domain;
+package com.garmin.java.academy.domain.old;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.garmin.java.academy.domain.Activity;
+import com.garmin.java.academy.domain.ActivityType;
 
 public class MetricsCache {
 

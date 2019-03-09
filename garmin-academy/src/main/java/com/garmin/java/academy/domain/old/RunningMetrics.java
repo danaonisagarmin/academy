@@ -1,4 +1,4 @@
-package com.garmin.java.academy.domain;
+package com.garmin.java.academy.domain.old;
 
 public class RunningMetrics extends Metrics {
     private int totalElevation;

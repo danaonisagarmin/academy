@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import com.garmin.java.academy.domain.Activity;
 import com.garmin.java.academy.domain.ActivityType;
-import com.garmin.java.academy.domain.Insight;
+import com.garmin.java.academy.domain.old.Insight;
 import com.garmin.java.academy.engine.manager.ActivityManager;
 import com.garmin.java.academy.engine.manager.MetricsManager;
 
