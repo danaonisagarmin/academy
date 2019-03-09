@@ -11,20 +11,20 @@ import com.garmin.java.academy.domain.MeasurementUnit;
 import com.garmin.java.academy.domain.RunningActivity;
 import com.garmin.java.academy.domain.old.MetricsCache;
 import com.garmin.java.academy.domain.old.RunningMetrics;
-import com.garmin.java.academy.engine.manager.ActivityManager;
-import com.garmin.java.academy.io.impl.ActivityRepositoryImpl;
+import com.garmin.java.academy.io.impl.ActivityRepositoryJsonImpl;
+import com.garmin.java.academy.manager.ActivityService;
 
 public class PerformanceInsightGeneratorTest
 {
     
-    ActivityManager activityManager;
+    ActivityService activityManager;
     MetricsCache metricsCache; 
     PerformanceInsightGenerator performanceInsightGenerator; 
     
     @Test
     public void validateGenerateAll() throws Exception
     {
-        activityManager =new ActivityManager(new ActivityRepositoryImpl());
+        activityManager =new ActivityService(new ActivityRepositoryJsonImpl());
         metricsCache = new MetricsCache();
         performanceInsightGenerator = new PerformanceInsightGenerator();
         performanceInsightGenerator.setActivityManager(activityManager);

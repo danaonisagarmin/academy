@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -22,9 +21,9 @@ import com.garmin.java.academy.io.ActivityRepository;
 
 //TODO
 @Repository
-public class ActivityRepositoryImpl implements ActivityRepository {
+public class ActivityRepositoryJsonImpl implements ActivityRepository {
 
-    private static final String ACTIVITY_FILE_NAME = "activities/activity.json";
+    //private static final String ACTIVITY_FILE_NAME = "activities/activity.json";
     private static final String RUNNING_ACTIVITIES_FILE_NAME = "activities/runningActivities.json";
     private static final String SWIMMING_ACTIVITIES_FILE_NAME = "activities/swimmingActivities.json";
 
@@ -46,8 +45,8 @@ public class ActivityRepositoryImpl implements ActivityRepository {
         return loadActivities();
     }
 
-    @Override
-    public List<Activity> loadActivities() throws IOException, URISyntaxException {
+    //load all activities
+    private List<Activity> loadActivities() throws IOException, URISyntaxException {
         String runningActivities = readFile(RUNNING_ACTIVITIES_FILE_NAME);
         String swimmingActivities = readFile(SWIMMING_ACTIVITIES_FILE_NAME);
 
@@ -61,7 +60,7 @@ public class ActivityRepositoryImpl implements ActivityRepository {
     }
     
     private static String readFile(String fileName) throws URISyntaxException, IOException {
-    	Path path = Paths.get(ActivityRepositoryImpl.class.getClassLoader().getResource(fileName).toURI());
+    	Path path = Paths.get(ActivityRepositoryJsonImpl.class.getClassLoader().getResource(fileName).toURI());
         Stream<String> lines = Files.lines(path);
         String data = lines.collect(Collectors.joining("\n"));
         lines.close();

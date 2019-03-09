@@ -1,9 +1,7 @@
-package com.garmin.java.academy.engine.manager;
+package com.garmin.java.academy.manager;
 
 import static java.util.stream.Collectors.toList;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.Comparator;
 import java.util.List;
 
@@ -15,38 +13,41 @@ import com.garmin.java.academy.domain.ActivityType;
 import com.garmin.java.academy.io.ActivityRepository;
 
 @Component
-public class ActivityManager {
+public class ActivityService {
 
 	@Autowired
-    private ActivityRepository activityRepositoryImpl;
+    private ActivityRepository activityRepositoryJsonImpl;
+	
+	/*@Autowired
+    private ActivityRepository activityRepositoryDBImpl;*/ // for database use
 
-    public ActivityManager(ActivityRepository activityRepository) {
-        this.activityRepositoryImpl = activityRepository;
+    public ActivityService(ActivityRepository activityRepository) {
+        this.activityRepositoryJsonImpl = activityRepository;
     }
 
     public void add(Activity activity) throws Exception {
-        activityRepositoryImpl.add(activity);
+        activityRepositoryJsonImpl.add(activity);
     }
     
     public List<Activity> getActivities() throws Exception {
-        return this.activityRepositoryImpl.getActivities();
+        return this.activityRepositoryJsonImpl.getActivities();
     }
     
     public List<Activity> getActivitiesOfType(ActivityType type) throws Exception{
-        return this.activityRepositoryImpl.getActivities().stream()
+        return this.activityRepositoryJsonImpl.getActivities().stream()
             .filter(s -> s.getType().equals(type))
             .collect(toList());
     }
     
     public Activity getLatestActivityForType(ActivityType type) throws Exception {
-        return this.activityRepositoryImpl.getActivities().stream()
+        return this.activityRepositoryJsonImpl.getActivities().stream()
             .filter(s -> s.getType().equals(type))
             .max(Comparator.comparing(Activity::getDate))
             .get();
     }
     
     public Activity getLatestActivity() throws Exception {
-        return this.activityRepositoryImpl.getActivities().stream()
+        return this.activityRepositoryJsonImpl.getActivities().stream()
             .max(Comparator.comparing(Activity::getDate))
             .get();
     }

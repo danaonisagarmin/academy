@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.garmin.java.academy.domain.Activity;
-import com.garmin.java.academy.engine.manager.ActivityManager;
+import com.garmin.java.academy.manager.ActivityService;
 
 @RestController
 @RequestMapping("/activity")
 public class ActivityController {
 	
 	@Autowired
-	private ActivityManager activityManager;
+	private ActivityService activityManager;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public Activity getMostRecentActivity() throws Exception {
