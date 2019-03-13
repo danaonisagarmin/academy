@@ -1,4 +1,4 @@
-    package com.garmin.java.academy.engine;
+package com.garmin.java.academy.engine;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,20 +19,20 @@ import com.garmin.java.academy.domain.RunningMetrics;
 import com.garmin.java.academy.domain.StrokeType;
 import com.garmin.java.academy.domain.SwimmingActivity;
 import com.garmin.java.academy.domain.SwimmingMetrics;
-import com.garmin.java.academy.engine.manager.ActivityManager;
-import com.garmin.java.academy.io.impl.ActivityRepositoryImpl;
+import com.garmin.java.academy.io.impl.ActivityRepositoryJsonImpl;
+import com.garmin.java.academy.service.ActivityService;
 
 public class PerformanceInsightGeneratorTest
 {
     
-    ActivityManager activityManager;
+    ActivityService activityManager;
     MetricsCache metricsCache; 
     PerformanceInsightGenerator performanceInsightGenerator; 
     
     @Test
     public void validateGenerateAll() throws Exception
     {
-        activityManager =new ActivityManager(new ActivityRepositoryImpl());
+        activityManager =new ActivityService(new ActivityRepositoryJsonImpl());
         metricsCache = new MetricsCache();
         performanceInsightGenerator = new PerformanceInsightGenerator();
         performanceInsightGenerator.setActivityManager(activityManager);

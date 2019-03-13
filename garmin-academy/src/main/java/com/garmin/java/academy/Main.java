@@ -1,26 +1,26 @@
 package com.garmin.java.academy;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.garmin.java.academy.domain.Activity;
 import com.garmin.java.academy.domain.ActivityType;
 import com.garmin.java.academy.domain.Distance;
 import com.garmin.java.academy.domain.MeasurementUnit;
 import com.garmin.java.academy.domain.RunningActivity;
-import com.garmin.java.academy.engine.manager.ActivityManager;
-import com.garmin.java.academy.io.impl.ActivityRepositoryImpl;
-
-import java.util.Date;
-import java.util.List;
 
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		ActivityManager manager = new ActivityManager(new ActivityRepositoryImpl());
-		List<Activity> activities = manager.getActivities();
+		/*ActivityManager manager = new ActivityManager(new ActivityRepositoryImpl());
+		List<Activity> activities = manager.getActivities();*/
+		generateJson();
 
 	}
 
-	private void generateJson() throws Exception {
+	private static void generateJson() throws Exception {
 		Activity a = new RunningActivity();
 		a.setDate(new Date());
 		a.setDistance(new Distance(123f, MeasurementUnit.METERS));
@@ -30,6 +30,11 @@ public class Main {
 
 		ObjectMapper mapper = new ObjectMapper();
 		System.out.println(new ObjectMapper().writeValueAsString(a));
+		
+		List<Activity> activities = new ArrayList<>();
+		activities.add(a);
+		activities.add(a);
+		System.out.println(activities);
 	}
 
 }

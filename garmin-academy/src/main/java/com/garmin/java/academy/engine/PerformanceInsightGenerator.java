@@ -12,7 +12,7 @@ import com.garmin.java.academy.domain.RunningActivity;
 import com.garmin.java.academy.domain.RunningMetrics;
 import com.garmin.java.academy.domain.SwimmingActivity;
 import com.garmin.java.academy.domain.SwimmingMetrics;
-import com.garmin.java.academy.engine.manager.ActivityManager;
+import com.garmin.java.academy.service.ActivityService;
 
 /**
  * Insights generated for performances 
@@ -26,7 +26,7 @@ public class PerformanceInsightGenerator implements InsightGenerator
     private static String MESSAGE_NEW_RECORD = "For your last %s activity your %s was %s. You have achieved a new %s historical record, Congratulations! ";
     private static String MESSAGE_OVER_AVERAGE = "For your last %s activity your %s was %s. This is a better %s than your historical average. It's something!";
     
-    ActivityManager activityManager;
+    ActivityService activityManager;
     MetricsCache metricsCache;
     
     /**
@@ -134,13 +134,13 @@ public class PerformanceInsightGenerator implements InsightGenerator
     }
     
     
-    public ActivityManager getActivityManager()
+    public ActivityService getActivityManager()
     {
         return activityManager;
     }
 
     
-    public void setActivityManager(ActivityManager activityManager)
+    public void setActivityManager(ActivityService activityManager)
     {
         this.activityManager = activityManager;
     }

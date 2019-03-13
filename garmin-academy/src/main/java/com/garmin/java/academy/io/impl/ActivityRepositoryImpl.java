@@ -39,8 +39,7 @@ public class ActivityRepositoryImpl implements ActivityRepository {
         return activities;
     }
 
-    @Override
-    public List<Activity> loadActivities() throws IOException, URISyntaxException {
+    private List<Activity> loadActivities() throws IOException, URISyntaxException {
         String data = readFile(ACTIVITIES_FILE_NAME);
         List<Activity> activities = mapper.readValue(data, new TypeReference<List<Activity>>() {
         });
@@ -50,7 +49,7 @@ public class ActivityRepositoryImpl implements ActivityRepository {
     }
 
     private static String readFile(String fileName) throws URISyntaxException, IOException {
-        Path path = Paths.get(ActivitiesFileReader.class.getClassLoader().getResource(fileName).toURI());
+        Path path = Paths.get(ActivityRepositoryImpl.class.getClassLoader().getResource(fileName).toURI());
         Stream<String> lines = Files.lines(path);
         String data = lines.collect(Collectors.joining("\n"));
         lines.close();

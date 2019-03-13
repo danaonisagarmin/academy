@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 import com.garmin.java.academy.domain.Activity;
 import com.garmin.java.academy.domain.ActivityType;
 import com.garmin.java.academy.domain.Insight;
-import com.garmin.java.academy.engine.manager.ActivityManager;
-import com.garmin.java.academy.engine.manager.MetricsManager;
+import com.garmin.java.academy.manager.MetricsManager;
+import com.garmin.java.academy.service.ActivityService;
 
 public class VirtualTrainerImpl implements VirtualTrainer
 
@@ -16,7 +16,7 @@ public class VirtualTrainerImpl implements VirtualTrainer
     private List<InsightGenerator> insightGenerators;
 
     private MetricsManager metricsManager;
-    private ActivityManager activityManager;
+    private ActivityService activityManager;
     
 
     @Override
@@ -90,12 +90,12 @@ public class VirtualTrainerImpl implements VirtualTrainer
         this.metricsManager = metricsManager;
     }
 
-    public ActivityManager getActivityManager()
+    public ActivityService getActivityManager()
     {
         return activityManager;
     }
 
-    public void setActivityManager(ActivityManager activityManager)
+    public void setActivityManager(ActivityService activityManager)
     {
         this.activityManager = activityManager;
     }
