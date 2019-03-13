@@ -1,4 +1,4 @@
-package com.garmin.java.academy.manager;
+package com.garmin.java.academy.service;
 
 import static java.util.stream.Collectors.toList;
 

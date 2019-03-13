@@ -1,8 +1,6 @@
-package com.garmin.java.academy.domain.old;
+package com.garmin.java.academy.domain;
 
 import java.util.List;
-
-import com.garmin.java.academy.domain.ActivityType;
 
 public class Insight
 {

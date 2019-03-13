@@ -1,4 +1,4 @@
-package com.garmin.java.academy.domain.old;
+package com.garmin.java.academy.domain;
 
 public abstract class Metrics {
 

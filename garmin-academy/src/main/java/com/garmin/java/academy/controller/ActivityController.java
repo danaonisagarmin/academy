@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.garmin.java.academy.domain.Activity;
-import com.garmin.java.academy.manager.ActivityService;
+import com.garmin.java.academy.service.ActivityService;
 
 @RestController
 @RequestMapping("/activity")

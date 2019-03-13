@@ -3,7 +3,7 @@ package com.garmin.java.academy.engine;
 import java.util.List;
 
 import com.garmin.java.academy.domain.Activity;
-import com.garmin.java.academy.domain.old.Insight;
+import com.garmin.java.academy.domain.Insight;
 
 public interface VirtualTrainer
 {

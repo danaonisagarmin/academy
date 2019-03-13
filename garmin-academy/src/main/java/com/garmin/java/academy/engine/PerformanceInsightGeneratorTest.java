@@ -8,11 +8,11 @@ import org.junit.jupiter.api.Test;
 import com.garmin.java.academy.domain.ActivityType;
 import com.garmin.java.academy.domain.Distance;
 import com.garmin.java.academy.domain.MeasurementUnit;
+import com.garmin.java.academy.domain.MetricsCache;
 import com.garmin.java.academy.domain.RunningActivity;
-import com.garmin.java.academy.domain.old.MetricsCache;
-import com.garmin.java.academy.domain.old.RunningMetrics;
+import com.garmin.java.academy.domain.RunningMetrics;
 import com.garmin.java.academy.io.impl.ActivityRepositoryJsonImpl;
-import com.garmin.java.academy.manager.ActivityService;
+import com.garmin.java.academy.service.ActivityService;
 
 public class PerformanceInsightGeneratorTest
 {
