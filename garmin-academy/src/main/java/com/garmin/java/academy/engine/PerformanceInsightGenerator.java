@@ -26,9 +26,6 @@ public class PerformanceInsightGenerator implements InsightGenerator
     private static String MESSAGE_NEW_RECORD = "For your last %s activity your %s was %s. You have achieved a new %s historical record, Congratulations! ";
     private static String MESSAGE_OVER_AVERAGE = "For your last %s activity your %s was %s. This is a better %s than your historical average. It's something!";
     
-    //Your have acheived a new pace historical record with your last running activity. Your pace was 6.41. Congratulations! 
-    //Your latest swolf activity has a better swolf than your historical average. Your swolf was 22. It's something
-    
     ActivityManager activityManager;
     MetricsCache metricsCache;
     
