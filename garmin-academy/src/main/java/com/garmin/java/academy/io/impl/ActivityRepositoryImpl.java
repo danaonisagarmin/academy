@@ -10,6 +10,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -23,9 +24,14 @@ public class ActivityRepositoryImpl implements ActivityRepository {
 
     private List<Activity> activities;
 
+    public ActivityRepositoryImpl()
+    {
+        activities = new LinkedList <Activity>();
+    }
+
     @Override
     public void add(Activity activity) throws Exception {
-
+        activities.add(activity);
     }
 
     @Override

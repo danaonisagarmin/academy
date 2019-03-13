@@ -23,8 +23,11 @@ import com.garmin.java.academy.engine.manager.ActivityManager;
  */
 public class PerformanceInsightGenerator implements InsightGenerator
 {
-    private static String MESSAGE_NEW_RECORD = "Your have acheived a new %s historical record with your last %s activity. Congratulations! ";
-    private static String MESSAGE_OVER_AVERAGE = "Your latest %s activity has a better %s than your historical average. It's something";
+    private static String MESSAGE_NEW_RECORD = "For your last %s activity your %s was %s. You have achieved a new %s historical record, Congratulations! ";
+    private static String MESSAGE_OVER_AVERAGE = "For your last %s activity your %s was %s. This is a better %s than your historical average. It's something!";
+    
+    //Your have acheived a new pace historical record with your last running activity. Your pace was 6.41. Congratulations! 
+    //Your latest swolf activity has a better swolf than your historical average. Your swolf was 22. It's something
     
     ActivityManager activityManager;
     MetricsCache metricsCache;
@@ -39,7 +42,7 @@ public class PerformanceInsightGenerator implements InsightGenerator
         List<Insight> newInsights = new LinkedList<>();
 
         RunningActivity latestRunningActivity = (RunningActivity)activityManager.getLatestActivityForType(ActivityType.RUNNING);
-        SwimmingActivity latestSwimmingActivity = (SwimmingActivity)activityManager.getLatestActivityForType(ActivityType.RUNNING);
+        SwimmingActivity latestSwimmingActivity = (SwimmingActivity)activityManager.getLatestActivityForType(ActivityType.SWIMMING);
         
         newInsights.add(runnigInsightPaceSubRule(latestRunningActivity));        
         newInsights.add(swimmingInsightsSwolfSubRule(latestSwimmingActivity));
@@ -86,7 +89,7 @@ public class PerformanceInsightGenerator implements InsightGenerator
         
         if(latestActivity.equals(fastestActivity))
         {                    
-            return new Insight(String.format(MESSAGE_NEW_RECORD, "pace", "running"));
+            return new Insight(String.format(MESSAGE_NEW_RECORD, "running", "pace", latestActivity.getPace(), "pace"));
         }
         
         // check for better than average 
@@ -94,7 +97,7 @@ public class PerformanceInsightGenerator implements InsightGenerator
         
         if(latestActivity.getPace()>runnnigMetrics.getAvgPace())
         {                    
-            return new Insight(String.format(MESSAGE_OVER_AVERAGE, "running", "pace"));
+            return new Insight(String.format(MESSAGE_OVER_AVERAGE, "running", "pace", latestActivity.getPace(), "pace"));
         }
         return null;
     }
@@ -110,7 +113,7 @@ public class PerformanceInsightGenerator implements InsightGenerator
     private Insight swimmingInsightsSwolfSubRule(SwimmingActivity latestActivity) throws Exception
     {
     	// check for best record
-        List<Activity> allSwimmingActivities = activityManager.getActivitiesOfType(ActivityType.RUNNING);
+        List<Activity> allSwimmingActivities = activityManager.getActivitiesOfType(ActivityType.SWIMMING);
         
         Activity fastestActivity = allSwimmingActivities.stream()
                                     .map(obj -> (SwimmingActivity) obj)
@@ -119,7 +122,7 @@ public class PerformanceInsightGenerator implements InsightGenerator
         
         if(latestActivity.equals(fastestActivity))
         {                    
-            return new Insight(String.format(MESSAGE_NEW_RECORD, "pace", "running"));
+            return new Insight(String.format(MESSAGE_NEW_RECORD, "swimming", "swolf", latestActivity.getSwolf(), "swolf"));
         }
         
         // check for better than average 
@@ -127,7 +130,7 @@ public class PerformanceInsightGenerator implements InsightGenerator
         
         if(latestActivity.getSwolf()>swimmingMetrics.getAvgSwolf())
         {                    
-            return new Insight(String.format(MESSAGE_OVER_AVERAGE, "running", "pace"));
+            return new Insight(String.format(MESSAGE_OVER_AVERAGE, "swimming", "swolf", latestActivity.getSwolf(), "swolf"));
         }
         
         return null;
