@@ -1,12 +1,13 @@
 package com.garmin.java.academy.engine;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.garmin.java.academy.domain.Activity;
 import com.garmin.java.academy.domain.ActivityType;
@@ -19,7 +20,7 @@ import com.garmin.java.academy.domain.RunningMetrics;
 import com.garmin.java.academy.domain.StrokeType;
 import com.garmin.java.academy.domain.SwimmingActivity;
 import com.garmin.java.academy.domain.SwimmingMetrics;
-import com.garmin.java.academy.io.impl.ActivityRepositoryJsonImpl;
+import com.garmin.java.academy.io.impl.ActivityRepositoryImpl;
 import com.garmin.java.academy.service.ActivityService;
 
 public class PerformanceInsightGeneratorTest
@@ -32,7 +33,7 @@ public class PerformanceInsightGeneratorTest
     @Test
     public void validateGenerateAll() throws Exception
     {
-        activityManager =new ActivityService(new ActivityRepositoryJsonImpl());
+        activityManager =new ActivityService(new ActivityRepositoryImpl());
         metricsCache = new MetricsCache();
         performanceInsightGenerator = new PerformanceInsightGenerator();
         performanceInsightGenerator.setActivityManager(activityManager);
