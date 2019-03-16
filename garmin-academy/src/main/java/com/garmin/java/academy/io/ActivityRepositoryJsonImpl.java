@@ -1,4 +1,4 @@
-package com.garmin.java.academy.io.impl;
+package com.garmin.java.academy.io;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -9,18 +9,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.springframework.stereotype.Repository;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.garmin.java.academy.domain.Activity;
 import com.garmin.java.academy.domain.RunningActivity;
 import com.garmin.java.academy.domain.SwimmingActivity;
-import com.garmin.java.academy.io.ActivityRepository;
 
-//TODO
-@Repository
 public class ActivityRepositoryJsonImpl implements ActivityRepository {
 
     //private static final String ACTIVITY_FILE_NAME = "activities/activity.json";

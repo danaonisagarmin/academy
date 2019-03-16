@@ -1,8 +1,8 @@
-package com.garmin.java.academy.manager;
+package com.garmin.java.academy.service;
 
 import com.garmin.java.academy.domain.Activity;
 
-public class MetricsManager {
+public class MetricsService {
 
     public void update(Activity activity){
     }

@@ -11,7 +11,7 @@ import com.garmin.java.academy.domain.Distance;
 import com.garmin.java.academy.domain.MeasurementUnit;
 import com.garmin.java.academy.domain.RunningActivity;
 import com.garmin.java.academy.io.ActivityRepository;
-import com.garmin.java.academy.io.impl.ActivityRepositoryJsonImpl;
+import com.garmin.java.academy.io.ActivityRepositoryJsonImpl;
 
 public class Main {
 
