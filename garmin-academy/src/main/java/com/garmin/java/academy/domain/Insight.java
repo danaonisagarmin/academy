@@ -7,7 +7,7 @@ public class Insight
     private String insightMessage;
 
     /*
-     * used to determine if an inisght must be removed/refreshed
+     * used to determine if an insight must be removed/refreshed
      * when a new activity is uploaded
      */
     private List <ActivityType> influencedByType;

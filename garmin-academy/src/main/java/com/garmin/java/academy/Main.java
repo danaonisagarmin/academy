@@ -10,12 +10,13 @@ import com.garmin.java.academy.domain.ActivityType;
 import com.garmin.java.academy.domain.Distance;
 import com.garmin.java.academy.domain.MeasurementUnit;
 import com.garmin.java.academy.domain.RunningActivity;
+import com.garmin.java.academy.io.ActivityRepository;
+import com.garmin.java.academy.io.impl.ActivityRepositoryJsonImpl;
 
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		/*ActivityManager manager = new ActivityManager(new ActivityRepositoryImpl());
-		List<Activity> activities = manager.getActivities();*/
+        ActivityRepository activityRepository= new ActivityRepositoryJsonImpl();
 		generateJson();
 
 	}

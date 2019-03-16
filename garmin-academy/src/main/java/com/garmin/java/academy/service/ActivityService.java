@@ -5,14 +5,10 @@ import static java.util.stream.Collectors.toList;
 import java.util.Comparator;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import com.garmin.java.academy.domain.Activity;
 import com.garmin.java.academy.domain.ActivityType;
 import com.garmin.java.academy.io.ActivityRepository;
 
-@Component
 public class ActivityService {
 
 	@Autowired
