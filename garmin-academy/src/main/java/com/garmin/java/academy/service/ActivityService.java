@@ -15,6 +15,7 @@ public class ActivityService {
 	
     public ActivityService(ActivityRepository activityRepository) {
         this.activityRepository = activityRepository;
+        System.out.println("Initialised ActivityService");
     }
 
     public void add(Activity activity) throws Exception {

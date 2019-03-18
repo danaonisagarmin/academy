@@ -11,9 +11,11 @@ public class AcademyApplication
     private ActivityService activityService;
     private MetricsService metricsService;
     private VirtualTrainerService virtualTrainerService;
-    public AcademyApplication()
+    public AcademyApplication() throws Exception
     {
         ActivityRepository activityRepository = new ActivityRepositoryJsonImpl();
+        activityRepository.loadActivities();
+        
         activityService = new ActivityService(activityRepository);
         metricsService = new MetricsService();
         virtualTrainerService = new VirtualTrainerService();

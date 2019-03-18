@@ -18,6 +18,11 @@ import com.garmin.java.academy.domain.SwimmingActivity;
 
 public class ActivityRepositoryJsonImpl implements ActivityRepository {
 
+    public ActivityRepositoryJsonImpl()
+    {
+        System.out.println("Initialised ActivityRepositoryJsonImpl");
+    }
+
     //private static final String ACTIVITY_FILE_NAME = "activities/activity.json";
     private static final String RUNNING_ACTIVITIES_FILE_NAME = "activities/runningActivities.json";
     private static final String SWIMMING_ACTIVITIES_FILE_NAME = "activities/swimmingActivities.json";
@@ -41,7 +46,8 @@ public class ActivityRepositoryJsonImpl implements ActivityRepository {
     }
 
     //load all activities
-    private List<Activity> loadActivities() throws IOException, URISyntaxException {
+    @Override
+    public List<Activity> loadActivities() throws IOException, URISyntaxException {
         String runningActivities = readFile(RUNNING_ACTIVITIES_FILE_NAME);
         String swimmingActivities = readFile(SWIMMING_ACTIVITIES_FILE_NAME);
 
@@ -51,6 +57,7 @@ public class ActivityRepositoryJsonImpl implements ActivityRepository {
         activities.addAll(mapper.readValue(swimmingActivities, new TypeReference<List<SwimmingActivity>>() {
         }));
         
+        System.out.println("ActivityRepositoryJsonImpl loaded from file activities: "+ activities.toString());
         return activities;
     }
     
