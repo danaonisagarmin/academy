@@ -23,7 +23,6 @@ public class ActivityRepositoryJsonImpl implements ActivityRepository {
         System.out.println("Initialised ActivityRepositoryJsonImpl");
     }
 
-    //private static final String ACTIVITY_FILE_NAME = "activities/activity.json";
     private static final String RUNNING_ACTIVITIES_FILE_NAME = "activities/runningActivities.json";
     private static final String SWIMMING_ACTIVITIES_FILE_NAME = "activities/swimmingActivities.json";
 
@@ -57,7 +56,9 @@ public class ActivityRepositoryJsonImpl implements ActivityRepository {
         activities.addAll(mapper.readValue(swimmingActivities, new TypeReference<List<SwimmingActivity>>() {
         }));
         
-        System.out.println("ActivityRepositoryJsonImpl loaded from file activities: "+ activities.toString());
+        System.out.println("ActivityRepositoryJsonImpl loaded from file "+ activities.size()+" activities.");
+        activities.stream().forEach(System.out::println);
+        
         return activities;
     }
     
