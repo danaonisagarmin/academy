@@ -3,24 +3,51 @@ package com.garmin.java.academy.engine;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.garmin.java.academy.domain.Activity;
 import com.garmin.java.academy.domain.ActivityType;
 import com.garmin.java.academy.domain.Metrics;
+import com.garmin.java.academy.domain.RunningActivity;
+import com.garmin.java.academy.domain.RunningMetrics;
 import com.garmin.java.academy.io.ActivityRepository;
 
 public class MetricsCalculator {
 
 	Map<ActivityType, Metrics> activityMetrics;
+	ActivityRepository activityRepository;
 
 	public MetricsCalculator(ActivityRepository activityRepository) {
 		activityMetrics = new HashMap<ActivityType, Metrics>();
+		this.activityRepository = activityRepository;
+
 		System.out.println("initialized MetricsCalculator");
 	}
 
-	public void refreshMetrics(List<Activity> activities) {
-		activities.stream().forEach(activity -> initializeMetrics(activity));
-		// TODO save this to a file
+	public void refreshAllMetrics() throws Exception {
+		activityMetrics.clear();
+
+		List<Activity> activities = activityRepository.getActivities();
+
+		List<RunningActivity> runningActivities = activities.stream()
+					.filter(a -> a.getType().equals(ActivityType.RUNNING))
+					.map(obj -> (RunningActivity) obj)
+					.collect(Collectors.toList());
+		
+		activityMetrics.put(ActivityType.RUNNING, generateRunningMetrics(runningActivities));
+		
+		System.out.println("MetricsCalculator refreshed All Metrics. Metrics count: " + activityMetrics.size());
+	}
+
+	private Metrics generateRunningMetrics(List<RunningActivity> runningActivities) {
+		Metrics runMetrics = new RunningMetrics();
+		
+		int activitiesCount = (int) runningActivities.stream()
+							.count();
+		
+		runMetrics.setActivitiesNumber(activitiesCount);
+		
+		return runMetrics;
 	}
 
 	public Map<ActivityType, Metrics> getActivityMetrics() {
@@ -32,27 +59,5 @@ public class MetricsCalculator {
 	}
 
 	private void initializeMetrics(Activity activity) {
-		Metrics metrics;
-		if (activityMetrics == null) {
-			activityMetrics = new HashMap<>();
-		}
-		if (!activityMetrics.containsKey(activity.getType())) {
-//            metrics = new Metrics();
-//            activityMetrics.put(activity.getType(), metrics);
-		} else {
-			metrics = activityMetrics.get(activity.getType());
-		}
-//        createMetric(activity, metrics);
 	}
-
-	private Metrics createMetric(Activity activity, Metrics existingMetrix) {
-		// TODO calculate indiviudal metric
-		return null;
-	}
-
-	// temporary for unit testing
-	public void addMetric(ActivityType type, Metrics metric) {
-		activityMetrics.put(type, metric);
-	}
-
 }
