@@ -7,6 +7,7 @@ public abstract class Activity {
     protected String name;
     protected ActivityType type;
     protected Date date;
+    
     protected Long duration;
     protected Distance distance;
 

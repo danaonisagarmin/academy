@@ -17,7 +17,7 @@ public class AcademyApplication
         activityRepository.loadActivities();
         
         activityService = new ActivityService(activityRepository);
-        metricsService = new MetricsService();
+        metricsService = new MetricsService(activityRepository);
         virtualTrainerService = new VirtualTrainerService();
     }
 }
