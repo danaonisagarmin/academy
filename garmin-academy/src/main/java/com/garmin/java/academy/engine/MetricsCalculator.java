@@ -17,9 +17,10 @@ public class MetricsCalculator {
 	Map<ActivityType, Metrics> activityMetrics;
 	ActivityRepository activityRepository;
 
-	public MetricsCalculator(ActivityRepository activityRepository) {
+	public MetricsCalculator(ActivityRepository activityRepository) throws Exception {
 		activityMetrics = new HashMap<ActivityType, Metrics>();
 		this.activityRepository = activityRepository;
+		refreshAllMetrics();
 
 		System.out.println("initialized MetricsCalculator");
 	}
@@ -37,6 +38,7 @@ public class MetricsCalculator {
 		activityMetrics.put(ActivityType.RUNNING, generateRunningMetrics(runningActivities));
 		
 		System.out.println("MetricsCalculator refreshed All Metrics. Metrics count: " + activityMetrics.size());
+		activityMetrics.forEach((k,v)->System.out.println("Type : " + k + " Metrics : " + v));
 	}
 
 	private Metrics generateRunningMetrics(List<RunningActivity> runningActivities) {

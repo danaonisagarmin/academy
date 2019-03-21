@@ -40,7 +40,7 @@ public class ActivityRepositoryJsonImpl implements ActivityRepository {
 
 	@Override
 	public List<Activity> getActivities() throws Exception {
-		return loadActivities();
+		return activities;
 	}
 
 	// load all activities

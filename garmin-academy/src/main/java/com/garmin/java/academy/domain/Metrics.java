@@ -29,4 +29,12 @@ public abstract class Metrics {
     public void setAvgDistance(float avgDistance) {
         this.avgDistance = avgDistance;
     }
+
+	@Override
+	public String toString() {
+		return "Metrics [avgPace=" + avgPace + ", activitiesNumber=" + activitiesNumber + ", avgDistance=" + avgDistance
+				+ "]";
+	}
+    
+    
 }

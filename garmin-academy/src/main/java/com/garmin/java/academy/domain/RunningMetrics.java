@@ -10,4 +10,10 @@ public class RunningMetrics extends Metrics {
     public void setTotalElevation(int totalElevation) {
         this.totalElevation = totalElevation;
     }
+
+	@Override
+	public String toString() {
+		return "RunningMetrics [totalElevation=" + totalElevation + ", avgPace=" + avgPace + ", activitiesNumber="
+				+ activitiesNumber + ", avgDistance=" + avgDistance + "]";
+	}
 }

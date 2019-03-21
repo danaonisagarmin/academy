@@ -15,7 +15,6 @@ public class VirtualTrainerService
     {
         insightGenerators = new LinkedList <InsightGenerator>();
         System.out.println("Initialised VirtualTrainerService");
-        
     }
 
     /*

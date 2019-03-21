@@ -8,9 +8,8 @@ public class MetricsService {
 
 	MetricsCalculator metricsCalculator;
 	
-    public MetricsService(ActivityRepository activityRepository)
+    public MetricsService(ActivityRepository activityRepository) throws Exception
     {
-    	
     	metricsCalculator = new MetricsCalculator(activityRepository);
 		System.out.println("Initialised MetricsService");
     }
