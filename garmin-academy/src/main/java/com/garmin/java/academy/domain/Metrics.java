@@ -1,32 +1,36 @@
 package com.garmin.java.academy.domain;
 
+/*
+ * stores metrics for all activities of 
+ * a certain activity type
+ */
 public abstract class Metrics {
+	private ActivityType activityType;
+	private int activitiesCount;
+	private double averageSpeed;
 
-    float avgPace;
-    int activitiesNumber;
-    float avgDistance;
+	public ActivityType getActivityType() {
+		return activityType;
+	}
 
-    public float getAvgPace() {
-        return avgPace;
-    }
+	public void setActivityType(ActivityType activityType) {
+		this.activityType = activityType;
+	}
 
-    public void setAvgPace(float avgPace) {
-        this.avgPace = avgPace;
-    }
+	public int getActivitiesCount() {
+		return activitiesCount;
+	}
 
-    public int getActivitiesNumber() {
-        return activitiesNumber;
-    }
+	public void setActivitiesCount(int activitiesCount) {
+		this.activitiesCount = activitiesCount;
+	}
 
-    public void setActivitiesNumber(int activitiesNumber) {
-        this.activitiesNumber = activitiesNumber;
-    }
+	public double getAverageSpeed() {
+		return averageSpeed;
+	}
 
-    public float getAvgDistance() {
-        return avgDistance;
-    }
+	public void setAverageSpeed(double averageSpeed) {
+		this.averageSpeed = averageSpeed;
+	}
 
-    public void setAvgDistance(float avgDistance) {
-        this.avgDistance = avgDistance;
-    }
 }

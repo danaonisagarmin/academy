@@ -12,5 +12,12 @@ public interface ActivityRepository {
 
 	List<Activity> getActivities() throws Exception;
 
-    List <Activity> loadActivities() throws IOException, URISyntaxException;
+	/**
+	 * Reads activities from memory
+	 * 
+	 * @return
+	 * @throws IOException
+	 * @throws URISyntaxException
+	 */
+    List <Activity> loadActivities() throws Exception;
 }

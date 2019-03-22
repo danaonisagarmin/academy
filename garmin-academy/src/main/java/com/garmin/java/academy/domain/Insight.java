@@ -1,58 +1,23 @@
 package com.garmin.java.academy.domain;
 
-import java.util.List;
+public class Insight {
+	private String message;
+	private InsightType type;
 
-public class Insight
-{
-    private String insightMessage;
+	public String getMessage() {
+		return message;
+	}
 
-    /*
-     * used to determine if an insight must be removed/refreshed
-     * when a new activity is uploaded
-     */
-    private List <ActivityType> influencedByType;
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
-    private InsightType insightType;
+	public InsightType getType() {
+		return type;
+	}
 
-    public Insight(String message)
-    {
-        insightMessage = message;
-    }
+	public void setType(InsightType type) {
+		this.type = type;
+	}
 
-    public String getInsightMessage()
-    {
-        return insightMessage;
-    }
-
-    public void setInsightMessage(String insightMessage)
-    {
-        this.insightMessage = insightMessage;
-    }
-
-    public List <ActivityType> getInfluencedByType()
-    {
-        return influencedByType;
-    }
-
-    public void setInfluencedByType(List <ActivityType> influencedByType)
-    {
-        this.influencedByType = influencedByType;
-    }
-
-    public InsightType getInsightType()
-    {
-        return insightType;
-    }
-
-    public void setInsightType(InsightType insightType)
-    {
-        this.insightType = insightType;
-    }
-
-    @Override
-    public String toString()
-    {
-        return "Inisght [insightMessage=" + insightMessage + ", influencedByType=" + influencedByType +
-               ", insightType=" + insightType + "]";
-    }
 }

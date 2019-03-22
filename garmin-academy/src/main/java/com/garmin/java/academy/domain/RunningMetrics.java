@@ -1,13 +1,14 @@
 package com.garmin.java.academy.domain;
 
 public class RunningMetrics extends Metrics {
-    private int totalElevation;
+	private double averagePace;
 
-    public int getTotalElevation() {
-        return totalElevation;
-    }
+	public double getAveragePace() {
+		return averagePace;
+	}
 
-    public void setTotalElevation(int totalElevation) {
-        this.totalElevation = totalElevation;
-    }
+	public void setAveragePace(double averagePace) {
+		this.averagePace = averagePace;
+	}
+
 }
