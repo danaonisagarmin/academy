@@ -2,23 +2,23 @@ package com.garmin.java.academy.domain;
 
 public class Distance {
 
-    private float value;
+    private Double value;
 
     private MeasurementUnit measurementUnit;
 
     public Distance() {
     }
 
-    public Distance(float value, MeasurementUnit measurementUnit) {
+    public Distance(Double value, MeasurementUnit measurementUnit) {
         this.value = value;
         this.measurementUnit = measurementUnit;
     }
 
-    public float getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(float value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 

@@ -5,9 +5,9 @@ package com.garmin.java.academy.domain;
  * a certain activity type
  */
 public abstract class Metrics {
-	private ActivityType activityType;
-	private int activitiesCount;
-	private double averageSpeed;
+	protected ActivityType activityType;
+	protected int activitiesCount;
+	protected double averageSpeed;
 
 	public ActivityType getActivityType() {
 		return activityType;
