@@ -5,6 +5,8 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 import com.garmin.java.academy.domain.Activity;
+import com.garmin.java.academy.domain.ActivityType;
+import com.garmin.java.academy.domain.RunningActivity;
 
 public interface ActivityRepository {
 
@@ -20,4 +22,6 @@ public interface ActivityRepository {
 	 * @throws URISyntaxException
 	 */
     List <Activity> loadActivities() throws Exception;
+
+    Activity getLatestActivityForType(ActivityType running);
 }

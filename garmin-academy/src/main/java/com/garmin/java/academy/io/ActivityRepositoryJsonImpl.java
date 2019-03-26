@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -13,6 +14,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.garmin.java.academy.domain.Activity;
+import com.garmin.java.academy.domain.ActivityType;
 import com.garmin.java.academy.domain.RunningActivity;
 import com.garmin.java.academy.domain.SwimmingActivity;
 
@@ -71,5 +73,14 @@ public class ActivityRepositoryJsonImpl implements ActivityRepository {
 		lines.close();
 		return data;
 	}
+
+    @Override
+    public Activity getLatestActivityForType(ActivityType type)
+    {
+        return activities.stream()
+        .filter(s -> s.getType().equals(type))
+        .max(Comparator.comparing(Activity::getDate))
+        .get();
+    }
 
 }

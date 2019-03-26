@@ -9,7 +9,7 @@
 			},
 			"elevation": 2,
 			"slope": null,
-			"pace": null
+			"pace": 5.83
 		},
 		
 		{
@@ -23,20 +23,20 @@
 			},
 			"elevation": 3,
 			"slope": null,
-			"pace": null
+			"pace": 6.11
 		},
 		
 		{
 			"name": "Wednesday Run",
 			"type": "RUNNING",
 			"date": 1552252630418,
-			"duration": 1400,
+			"duration": 1300,
 			"distance": {
 				"value": 4000.0,
 				"measurementUnit": "METERS"
 			},
 			"elevation": 4,
 			"slope": null,
-			"pace": null
+			"pace": 5.41
 		}
 ]

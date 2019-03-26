@@ -4,7 +4,12 @@ public class Insight {
 	private String message;
 	private InsightType type;
 
-	public String getMessage() {
+	public Insight(String message)
+    {
+        this.message = message;
+    }
+
+    public String getMessage() {
 		return message;
 	}
 
@@ -19,5 +24,13 @@ public class Insight {
 	public void setType(InsightType type) {
 		this.type = type;
 	}
+
+    @Override
+    public String toString()
+    {
+        return "Insight [message=" + message + ", type=" + type + "]";
+    }
+	
+	
 
 }
