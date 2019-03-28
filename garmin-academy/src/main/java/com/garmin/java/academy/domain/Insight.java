@@ -4,12 +4,7 @@ public class Insight {
 	private String message;
 	private InsightType type;
 
-	public Insight(String message)
-    {
-        this.message = message;
-    }
-
-    public String getMessage() {
+	public String getMessage() {
 		return message;
 	}
 
@@ -25,11 +20,10 @@ public class Insight {
 		this.type = type;
 	}
 
-    @Override
-    public String toString()
-    {
-        return "Insight [message=" + message + ", type=" + type + "]";
-    }
+	@Override
+	public String toString() {
+		return "Insight [message=" + message + ", type=" + type + "]";
+	}
 	
 	
 

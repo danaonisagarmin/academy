@@ -25,20 +25,34 @@ public class MetricsService {
 		System.out.println("Initialised MetricsService");
 	}
 	
-	private void initializeAllMetrics(){
-	    
-        List <Metrics> metrics =
-            metricsGenerators
-                .stream()
-                .map(MetricsGenerator::generateMetrics)
-                .collect(Collectors.toList());
-        
-	    metricsRepository.addMetrics(metrics);
-	    
-       System.out.println("MetricsService loaded " + metrics.size() + " metrics.");
-       metrics.stream().forEach(System.out::println);
-	    
-	    
+	private void initializeAllMetrics() {
+		
+		List<Metrics> metrics =
+		metricsGenerators
+			.stream()
+			.map(MetricsGenerator::generateMetrics)
+			.collect(Collectors.toList());
+		
+		metricsRepository.addMetrics(metrics);
+		
+		System.out.println("MetricsService generated "+metrics.size() +" metrics" );
+		metrics.forEach(System.out::println);
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

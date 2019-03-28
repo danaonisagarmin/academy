@@ -5,7 +5,6 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -14,7 +13,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.garmin.java.academy.domain.Activity;
-import com.garmin.java.academy.domain.ActivityType;
 import com.garmin.java.academy.domain.RunningActivity;
 import com.garmin.java.academy.domain.SwimmingActivity;
 
@@ -52,11 +50,11 @@ public class ActivityRepositoryJsonImpl implements ActivityRepository {
 		String runningActivities = readFile(RUNNING_ACTIVITIES_FILE_NAME);
 		String swimmingActivities = readFile(SWIMMING_ACTIVITIES_FILE_NAME);
 
-		activities = mapper.readValue(runningActivities, new TypeReference<List<RunningActivity>>() {
-		});
+		activities = mapper.readValue(runningActivities, 
+				new TypeReference<List<RunningActivity>>() {});
 		
-		activities.addAll(mapper.readValue(swimmingActivities, new TypeReference<List<SwimmingActivity>>() {
-		}));
+		activities.addAll(mapper.readValue(swimmingActivities, 
+				new TypeReference<List<SwimmingActivity>>() {}));
 
 
 		System.out.println("ActivityRepositoryJsonImpl loaded from file " + activities.size() + " activities.");
@@ -73,14 +71,5 @@ public class ActivityRepositoryJsonImpl implements ActivityRepository {
 		lines.close();
 		return data;
 	}
-
-    @Override
-    public Activity getLatestActivityForType(ActivityType type)
-    {
-        return activities.stream()
-        .filter(s -> s.getType().equals(type))
-        .max(Comparator.comparing(Activity::getDate))
-        .get();
-    }
 
 }
